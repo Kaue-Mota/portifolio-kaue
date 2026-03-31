@@ -1,7 +1,7 @@
-import projectEcommerce from "@/assets/project-ecommerce.jpg";
-import projectLanding from "@/assets/project-landing.jpg";
-import projectPortfolio from "@/assets/project-portfolio.jpg";
-import projectDashboard from "@/assets/project-dashboard.jpg";
+import projectBarber from "/images/barber.png";
+import projectEternare from "/images/eternare.png";
+import projectKmoveis from "/images/kmoveis.png";
+import projectLelaluminio from "/images/lelaluminio.png";
 
 export interface Project {
   id: string;
@@ -15,38 +15,38 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "1",
-    title: "E-commerce de Moda Contemporânea",
+    title: "Presença Digital para Barbearias Modernas",
     description:
-      "Loja online completa com catálogo, carrinho e integração de pagamento. Design focado em conversão e experiência premium.",
-    image: projectEcommerce,
+      "Site institucional desenvolvido para transmitir estilo, tradição e profissionalismo. Com foco em conversão, inclui agendamento online, galeria de cortes e navegação intuitiva para atrair e fidelizar clientes.",
+    image: projectBarber,
     category: "E-commerce",
-    link: "#",
+    link: "https://barbeariamattoss.vercel.app",
   },
   {
     id: "2",
-    title: "Landing Page para Startup SaaS",
+    title: "Landing Page para Experiências Memoráveis",
     description:
-      "Página de alta conversão para produto digital. Copywriting persuasivo e design editorial que gerou 3x mais leads.",
-    image: projectLanding,
-    category: "Landing Page",
-    link: "#",
+      "Página de alta conversão criada para um produto digital emocional. Design moderno, tipografia marcante e estrutura pensada para guiar o usuário até a criação de memórias únicas de forma simples e envolvente.",
+    image: projectEternare,
+    category: "E-commerce",
+    link: "https://www.eternareit.com/",
   },
   {
     id: "3",
-    title: "Portfólio para Estúdio de Arquitetura",
+    title: "Site Institucional para Móveis Planejados",
     description:
-      "Site institucional com galeria de projetos, grid editorial e navegação fluida. Estilo sofisticado e minimalista.",
-    image: projectPortfolio,
+      "Projeto focado em elegância e clareza, destacando ambientes sofisticados e soluções sob medida. Interface leve e estratégica para apresentar serviços e gerar contatos qualificados.",
+    image: projectKmoveis   ,
     category: "Site Institucional",
-    link: "#",
+    link: "https://landing-page-kmoveis-vtwo.vercel.app",
   },
   {
     id: "4",
-    title: "Dashboard de Gestão Financeira",
+    title: "Catálogo Digital para Indústria de Alumínio",
     description:
-      "Painel administrativo com gráficos, relatórios e controle de métricas. Interface limpa e dados acessíveis.",
-    image: projectDashboard,
-    category: "Sistema Web",
-    link: "#",
+      "Plataforma desenvolvida para apresentar produtos com impacto visual e credibilidade. Layout moderno, com destaque para qualidade e fácil acesso ao catálogo e contato comercial.",
+    image: projectLelaluminio,
+    category: "Site Institucional",
+    link: "https://lelaluminio.vercel.app",
   },
 ];

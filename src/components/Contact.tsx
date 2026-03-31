@@ -1,7 +1,7 @@
 import AnimatedSection from "./AnimatedSection";
 
 const WHATSAPP_URL =
-  "https://wa.me/5500000000000?text=Olá,%20vi%20seu%20portfólio%20e%20gostaria%20de%20um%20site";
+  "https://wa.me/5561991014779?text=Olá,%20vi%20seu%20portfólio%20e%20gostaria%20de%20um%20site";
 
 const Contact = () => (
   <section id="contato" className="section-padding bg-secondary">
@@ -36,7 +36,7 @@ const Contact = () => (
             <p className="font-body text-sm text-muted-foreground mb-1 uppercase tracking-wide">
               E-mail
             </p>
-            <p className="font-body text-foreground mb-6">contato@kauemota.dev</p>
+            <p className="font-body text-foreground mb-6">pckaue1234@gmail.com</p>
             <p className="font-body text-sm text-muted-foreground mb-1 uppercase tracking-wide">
               Localização
             </p>

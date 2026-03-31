@@ -28,13 +28,15 @@ const About = () => (
         </AnimatedSection>
 
         <AnimatedSection className="lg:col-span-4 lg:col-start-9" delay={0.15}>
-          <div className="border-l-2 border-foreground pl-6">
+          <div className="border-l-2 border-foreground pl-6 flex flex-col items-center lg:items-start">
+            <img width={300} className="rounded-full" src="/images/imagemwb.png" alt="" />
             <blockquote className="font-display text-xl md:text-2xl italic text-foreground leading-snug mb-4">
               "Design não é apenas como algo parece. Design é como algo funciona."
             </blockquote>
             <cite className="font-body text-sm text-muted-foreground not-italic">
               — Steve Jobs
             </cite>
+
           </div>
         </AnimatedSection>
       </div>
