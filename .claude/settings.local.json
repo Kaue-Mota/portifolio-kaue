@@ -3,7 +3,8 @@
     "allow": [
       "Bash(find \"C:/Users/pckau/Documents/Portifolio/editorial-portfolio/src\" -type f -name \"*.{tsx,ts,css}\")",
       "Bash(npm run:*)",
-      "Bash(npx vite:*)"
+      "Bash(npx vite:*)",
+      "mcp__ide__getDiagnostics"
     ]
   }
 }
