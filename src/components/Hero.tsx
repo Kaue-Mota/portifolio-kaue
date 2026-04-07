@@ -1,13 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import FloatingDots from "./FloatingDots";
-
-const WHATSAPP_URL =
-  "https://wa.me/5561993375795?text=Olá,%20vi%20seu%20portfólio%20e%20gostaria%20de%20um%20site";
-
-const headlineWords = ["Sites", "Landing Pages", "Experiências", "Resultados"];
+import type { Lang } from "@/translations";
+import { translations } from "@/translations";
 
 const floatingElements = [
   { size: 300, top: "10%", left: "70%", color: "rgba(139, 92, 246, 0.35)", delay: 0, dur: 18 },
@@ -17,22 +14,20 @@ const floatingElements = [
   { size: 180, top: "85%", left: "50%", color: "rgba(245, 158, 11, 0.2)", delay: 3, dur: 17 },
 ];
 
-const Hero = () => {
+const Hero = ({ lang }: { lang: Lang }) => {
+  const t = translations[lang];
   const [currentWord, setCurrentWord] = useState(0);
 
   useEffect(() => {
+    setCurrentWord(0);
+  }, [lang]);
+
+  useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentWord((prev) => (prev + 1) % headlineWords.length);
+      setCurrentWord((prev) => (prev + 1) % 4);
     }, 2500);
     return () => clearInterval(interval);
   }, []);
-
-  const subtitleWords = [
-    { text: "Desenvolvimento", color: "text-violet-400" },
-    { text: "Web", color: "text-blue-400" },
-    { text: "Design", color: "text-pink-400" },
-    { text: "Resultados", color: "text-emerald-400" },
-  ];
 
   return (
     <section className="hero-section relative overflow-hidden">
@@ -92,32 +87,24 @@ const Hero = () => {
       {/* Grid overlay */}
       <div className="hero-grid hidden md:block" />
 
-      {/* Floating dots — all sections */}
+      {/* Floating dots */}
       <FloatingDots paletteIndex={0} />
 
       {/* Content */}
       <div className="hero-content z-10">
-        {/* Desktop content — centered, large */}
+        {/* Desktop content */}
         <div className="hidden md:flex flex-col items-center w-full">
-          {/* Top badge */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <p className="font-accent text-sm uppercase tracking-[0.2em] text-muted-foreground mb-6">
-              {subtitleWords.map((w, i) => (
-                <span key={i}>
-                  <span className="opacity-50">{w.text}</span>
-                  {i < subtitleWords.length - 1 && (
-                    <span className="mx-2 opacity-25">·</span>
-                  )}
-                </span>
-              ))}
+            <p className="font-accent text-sm uppercase tracking-[0.2em] text-muted-foreground mb-6"
+              key={`eyebrow-${lang}`}>
+              {t.hero_eyebrow}
             </p>
           </motion.div>
 
-          {/* Main headline */}
           <div className="mb-8">
             <motion.div
               initial={{ opacity: 0 }}
@@ -125,19 +112,19 @@ const Hero = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
             >
               <h1 className="hero-headline text-foreground">
-                <span className="block">Desenvolvedor</span>
-                <span className="block">que cria</span>
+                <span className="block">{t.hero_headline_1}</span>
+                <span className="block">{t.hero_headline_2}</span>
                 <span className="relative inline-block mt-1">
                   <AnimatePresence mode="wait">
                     <motion.span
-                      key={currentWord}
+                      key={`${currentWord}-${lang}`}
                       initial={{ opacity: 0, y: 40 }}
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -40 }}
                       transition={{ duration: 0.35, ease: "easeOut" }}
                       className="hero-highlight inline-block"
                     >
-                      {headlineWords[currentWord]}
+                      {t[`hero_words_${currentWord}` as keyof typeof t]}
                     </motion.span>
                   </AnimatePresence>
                 </span>
@@ -145,18 +132,16 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 1 }}
             className="hero-subtitle text-lg md:text-xl"
+            key={`subtitle-${lang}`}
           >
-            Sites profissionais com foco em performance, conversão e uma
-            experiência visual que impressiona. Do conceito à entrega.
+            {t.hero_subtitle}
           </motion.p>
 
-          {/* Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -167,23 +152,25 @@ const Hero = () => {
               to="/projetos"
               className="btn-glow group text-sm"
             >
-              <span>Ver projetos</span>
+              <span>{t.hero_btn_projects}</span>
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <a
-              href={WHATSAPP_URL}
+              href={lang === "en"
+                ? "https://wa.me/5561993375795?text=Hi,%20I%20saw%20your%20portfolio%20and%20would%20like%20a%20website"
+                : "https://wa.me/5561993375795?text=Olá,%20vi%20seu%20portfólio%20e%20gostaria%20de%20um%20site"
+              }
               target="_blank"
               rel="noopener noreferrer"
               className="btn-ghost group text-sm"
             >
-              <span>Fazer orçamento</span>
+              <span>{t.hero_btn_quote}</span>
             </a>
           </motion.div>
         </div>
 
-        {/* Mobile content — editorial layout */}
+        {/* Mobile content */}
         <div className="hero-content-mobile flex flex-col items-start w-full md:hidden">
-          {/* Top accent bar */}
           <motion.div
             initial={{ scaleX: 0, opacity: 0 }}
             animate={{ scaleX: 1, opacity: 1 }}
@@ -192,17 +179,15 @@ const Hero = () => {
             style={{ transformOrigin: "left" }}
           />
 
-          {/* Eyebrow */}
           <motion.p
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
             className="font-accent text-[10px] uppercase tracking-[0.3em] text-muted-foreground/70 mb-4"
           >
-            Desenvolvimento · Web
+            {t.hero_eyebrow}
           </motion.p>
 
-          {/* Headline */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -210,26 +195,25 @@ const Hero = () => {
             className="w-full mb-4"
           >
             <h1 className="hero-headline-mobile text-foreground leading-[1.08]">
-              <span className="block">Desenvolvedor</span>
-              <span className="block">que cria</span>
+              <span className="block">{t.hero_headline_1}</span>
+              <span className="block">{t.hero_headline_2}</span>
               <span className="relative inline-block mt-1">
                 <AnimatePresence mode="wait">
                   <motion.span
-                    key={currentWord}
+                    key={`m-${currentWord}-${lang}`}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.3, ease: "easeOut" }}
                     className="hero-highlight inline-block"
                   >
-                    {headlineWords[currentWord]}
+                    {t[`hero_words_${currentWord}` as keyof typeof t]}
                   </motion.span>
                 </AnimatePresence>
               </span>
             </h1>
           </motion.div>
 
-          {/* Divider */}
           <motion.div
             initial={{ scaleX: 0, opacity: 0 }}
             animate={{ scaleX: 1, opacity: 1 }}
@@ -238,17 +222,15 @@ const Hero = () => {
             style={{ transformOrigin: "left" }}
           />
 
-          {/* Subtitle */}
           <motion.p
             initial={{ opacity: 0, x: -16 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 1.2 }}
             className="hero-subtitle-mobile text-left leading-relaxed text-muted-foreground"
           >
-            Sites profissionais com foco em performance, conversão e experiência visual.
+            {t.hero_subtitle}
           </motion.p>
 
-          {/* Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
@@ -259,16 +241,19 @@ const Hero = () => {
               to="/projetos"
               className="btn-glow group text-center justify-center text-sm"
             >
-              <span>Ver projetos</span>
+              <span>{t.hero_btn_projects}</span>
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <a
-              href={WHATSAPP_URL}
+              href={lang === "en"
+                ? "https://wa.me/5561993375795?text=Hi,%20I%20saw%20your%20portfolio%20and%20would%20like%20a%20website"
+                : "https://wa.me/5561993375795?text=Olá,%20vi%20seu%20portfólio%20e%20gostaria%20de%20um%20site"
+              }
               target="_blank"
               rel="noopener noreferrer"
               className="btn-ghost group text-center justify-center text-sm"
             >
-              <span>Fazer orçamento</span>
+              <span>{t.hero_btn_quote}</span>
             </a>
           </motion.div>
         </div>
@@ -287,7 +272,7 @@ const Hero = () => {
           className="flex flex-col items-center gap-1.5 text-muted-foreground"
         >
           <span className="font-accent text-[10px] uppercase tracking-[0.2em]">
-            Scroll
+            {t.hero_scroll}
           </span>
           <ChevronDown className="h-4 w-4 opacity-40" />
         </motion.div>
