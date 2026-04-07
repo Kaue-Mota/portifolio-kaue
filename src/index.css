@@ -103,7 +103,7 @@
   align-items: center;
   justify-content: start;
   flex: 1;
-  padding-top: 4rem;
+  padding-top: 1rem;
 }
 
 @media (min-width: 768px) {
