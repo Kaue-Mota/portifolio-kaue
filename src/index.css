@@ -110,6 +110,7 @@
   .hero-content {
     padding-left: 3rem;
     padding-right: 3rem;
+     padding-top: 5rem;
   }
 }
 
@@ -117,13 +118,14 @@
   .hero-content {
     padding-left: 4rem;
     padding-right: 4rem;
+    padding-top: 4rem;
   }
 }
 
 /* ── Mobile-specific content ── */
 .hero-content-mobile {
   min-height: 100dvh;
-  padding-top: 2rem;
+  padding-top: 3rem;
   padding-bottom: 6rem;
   display: flex;
   flex-direction: column;

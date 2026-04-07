@@ -264,7 +264,7 @@ const Hero = ({ lang }: { lang: Lang }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 0.8 }}
-        className="absolute bottom-20 sm:bottom-16 md:bottom-16 left-1/2 -translate-x-1/2 z-10"
+        className="absolute bottom-20 sm:bottom-20 md:bottom-40 lg:bottom-20 left-1/2 -translate-x-1/2 z-10"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}
