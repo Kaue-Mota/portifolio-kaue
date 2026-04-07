@@ -1,3 +1,16 @@
-# Welcome to your Lovable project
+# Portfolio — Kauê Mota
 
-TODO: Document your project here
+Portfólio pessoal com projetos, tecnologias e serviços.
+
+## Rodando localmente
+
+```bash
+npm install
+npm run dev
+```
+
+## Build
+
+```bash
+npm run build
+```

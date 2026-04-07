@@ -19,7 +19,7 @@ export const projects: Project[] = [
     description:
       "Site institucional desenvolvido para transmitir estilo, tradição e profissionalismo. Com foco em conversão, inclui agendamento online, galeria de cortes e navegação intuitiva para atrair e fidelizar clientes.",
     image: projectBarber,
-    category: "E-commerce",
+    category: "Site Institucional",
     link: "https://barbeariamattoss.vercel.app",
   },
   {
