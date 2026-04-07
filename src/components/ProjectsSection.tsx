@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import FloatingDots from "./FloatingDots";
 import { projects } from "@/data/projects";
 import type { Project } from "@/data/projects";
 
@@ -30,7 +31,9 @@ const ProjectsSection = ({ showAll = false }: ProjectsSectionProps) => {
 
   return (
     <section id="projetos" className="section-padding relative overflow-hidden">
-      <div className="hidden md:block blob-pink absolute top-10 right-0 w-[500px] h-[500px] pointer-events-none opacity-50" />
+      <div className="hidden md:block blob-pink absolute top-20 -right-60 w-[500px] h-[500px] pointer-events-none opacity-25" />
+
+      <FloatingDots paletteIndex={1} />
 
       <div className="editorial-container relative z-10">
         {/* Header */}

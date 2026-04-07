@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import FloatingDots from "./FloatingDots";
 
 const technologies = [
   { name: "Vite", icon: "vitejs", description: "Build tooling rápido" },
@@ -33,8 +34,10 @@ const cardVariants = {
 
 const Technologies = () => (
   <section id="tecnologias" className="section-padding relative overflow-hidden">
-    <div className="blob-purple absolute -top-32 -left-20 w-[500px] h-[500px] pointer-events-none opacity-60" />
-    <div className="blob-blue absolute -bottom-32 right-10 w-[500px] h-[500px] pointer-events-none opacity-60" />
+    <div className="blob-purple absolute top-24 -left-60 w-[500px] h-[500px] pointer-events-none opacity-25" />
+    <div className="blob-blue absolute bottom-24 -right-60 w-[500px] h-[500px] pointer-events-none opacity-25" />
+
+    <FloatingDots paletteIndex={1} />
 
     <div className="editorial-container relative z-10">
       <motion.div

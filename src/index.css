@@ -91,26 +91,60 @@
 }
 
 .hero-content {
-  @apply editorial-container relative z-10 flex flex-col items-center justify-start;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
   flex: 1;
   padding-top: 4rem;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .hero-content {
-    min-height: 100dvh;
-    padding-top: 3.5rem;
-    padding-bottom: 7rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    justify-content: center;
+    padding-left: 3rem;
+    padding-right: 3rem;
   }
+}
 
+@media (min-width: 1024px) {
+  .hero-content {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+/* ── Mobile-specific content ── */
+.hero-content-mobile {
+  min-height: 100dvh;
+  padding-top: 5rem;
+  padding-bottom: 6rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-headline-mobile {
+  font-size: clamp(2.6rem, 9.5vw, 4rem);
+  line-height: 1.08;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.hero-subtitle-mobile {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
   .hero-headline {
-    font-size: clamp(2.2rem, 10vw, 6rem) !important;
+    font-size: clamp(4rem, 8vw, 8rem) !important;
     line-height: 1.1 !important;
-    word-break: break-word;
-    max-width: 100vw;
   }
 }
 
@@ -252,9 +286,32 @@ body::before {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 99;
   opacity: 0.04;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 200px 200px;
+}
+
+/* Floating dots over the entire site */
+.scattered-dots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+.scattered-dot {
+  position: absolute;
+  border-radius: 50%;
+  animation: dot-float linear infinite;
+}
+
+@keyframes dot-float {
+  0% { transform: translateY(0) translateX(0); opacity: var(--dot-o, 0.25); }
+  25% { transform: translateY(calc(var(--dy, -30px))) translateX(calc(var(--dx, 15px))); }
+  50% { transform: translateY(0) translateX(calc(var(--dx2, -10px))); opacity: calc(var(--dot-o, 0.25) * 1.5); }
+  75% { transform: translateY(calc(var(--dy2, 20px))) translateX(calc(var(--dx, 15px))); }
+  100% { transform: translateY(0) translateX(0); opacity: var(--dot-o, 0.25); }
 }

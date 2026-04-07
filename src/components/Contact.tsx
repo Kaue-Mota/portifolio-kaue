@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
+import FloatingDots from "./FloatingDots";
 
 const WHATSAPP_URL =
   "https://wa.me/5561993375795?text=Olá,%20vi%20seu%20portfólio%20e%20gostaria%20de%20um%20site";
@@ -12,8 +13,10 @@ const contactItems = [
 
 const Contact = () => (
   <section id="contato" className="section-padding relative overflow-hidden">
-    <div className="blob-pink absolute -top-40 right-20 w-[400px] h-[400px] pointer-events-none" />
-    <div className="blob-blue absolute -bottom-40 -left-20 w-[400px] h-[400px] pointer-events-none" />
+    <div className="blob-pink absolute top-32 -right-40 w-[400px] h-[400px] pointer-events-none opacity-20" />
+    <div className="blob-blue absolute bottom-32 -left-40 w-[400px] h-[400px] pointer-events-none opacity-15" />
+
+    <FloatingDots paletteIndex={3} />
 
     <div className="editorial-container relative z-10">
       <AnimatedSection>

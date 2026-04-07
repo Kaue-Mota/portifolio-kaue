@@ -1,4 +1,5 @@
 import AnimatedSection from "./AnimatedSection";
+import FloatingDots from "./FloatingDots";
 import serviceSitesImg from "@/assets/service-sites.png";
 import serviceLandingImg from "@/assets/service-landing.png";
 import serviceSystemsImg from "@/assets/service-systems.png";
@@ -26,7 +27,9 @@ const services = [
 
 const Services = () => (
   <section className="section-padding bg-primary text-primary-foreground relative overflow-hidden">
-    <div className="blob-purple absolute -top-40 -right-20 w-[500px] h-[500px] pointer-events-none opacity-50" />
+    <div className="blob-purple absolute top-32 -right-80 w-[500px] h-[500px] pointer-events-none opacity-30" />
+
+    <FloatingDots paletteIndex={2} />
 
     <div className="editorial-container relative z-10">
       <AnimatedSection>
