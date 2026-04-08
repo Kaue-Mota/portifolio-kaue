@@ -168,10 +168,10 @@
 
 .hero-highlight {
   background: linear-gradient(135deg,
-    hsl(262 83% 58%) 0%,
-    hsl(217 91% 60%) 30%,
-    hsl(330 81% 60%) 60%,
-    hsl(160 84% 39%) 100%);
+    hsl(0, 0%, 93%) 0%,
+    hsl(0, 0%, 0%) 30%,
+    hsl(0, 1%, 67%) 60%,
+    hsl(0, 0%, 32%) 100%);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -199,7 +199,7 @@
   position: absolute;
   inset: -2px;
   background: linear-gradient(135deg,
-    hsl(262 83% 58%),
+    hsl(264, 12%, 92%),
     hsl(217 91% 60%),
     hsl(330 81% 60%),
     hsl(160 84% 39%));
@@ -216,7 +216,7 @@
 }
 
 .btn-glow:hover {
-  box-shadow: 0 0 30px rgba(139, 92, 246, 0.3), 0 8px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3), 0 8px 30px rgba(0, 0, 0, 0.15);
 }
 
 .btn-ghost {
@@ -240,19 +240,19 @@
 }
 
 .blob-purple {
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.3) 0%, transparent 70%);
   animation: blob-float-1 12s ease-in-out infinite;
   filter: blur(40px);
 }
 
 .blob-blue {
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.3) 0%, transparent 70%);
   animation: blob-float-2 14s ease-in-out infinite;
   filter: blur(40px);
 }
 
 .blob-pink {
-  background: radial-gradient(circle, rgba(236, 72, 153, 0.3) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.3) 0%, transparent 70%);
   animation: blob-float-3 10s ease-in-out infinite;
   filter: blur(40px);
 }

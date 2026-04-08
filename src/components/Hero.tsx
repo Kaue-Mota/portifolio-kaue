@@ -7,11 +7,11 @@ import type { Lang } from "@/translations";
 import { translations } from "@/translations";
 
 const floatingElements = [
-  { size: 300, top: "10%", left: "70%", color: "rgba(139, 92, 246, 0.35)", delay: 0, dur: 18 },
-  { size: 350, top: "60%", left: "5%", color: "rgba(59, 130, 246, 0.3)", delay: 2, dur: 22 },
-  { size: 250, top: "70%", left: "75%", color: "rgba(236, 72, 153, 0.25)", delay: 4, dur: 15 },
-  { size: 200, top: "15%", left: "20%", color: "rgba(16, 185, 129, 0.2)", delay: 1, dur: 20 },
-  { size: 180, top: "85%", left: "50%", color: "rgba(245, 158, 11, 0.2)", delay: 3, dur: 17 },
+  { size: 300, top: "10%", left: "70%", color: "rgba(0, 0, 0, .7)", delay: 0, dur: 18 },
+  { size: 350, top: "60%", left: "5%", color: "rgba(0, 0, 0, 6)", delay: 2, dur: 22 },
+  { size: 250, top: "70%", left: "75%", color: "rgba(0, 0, 0, .2)", delay: 4, dur: 15 },
+  { size: 200, top: "15%", left: "20%", color: "rgba(0, 0, 0, .5)", delay: 1, dur: 20 },
+  { size: 180, top: "85%", left: "50%", color: "rgba(0, 0, 0, .3)", delay: 3, dur: 17 },
 ];
 
 const Hero = ({ lang }: { lang: Lang }) => {
@@ -66,7 +66,7 @@ const Hero = ({ lang }: { lang: Lang }) => {
           className="absolute rounded-full"
           style={{
             width: 200, height: 200, top: "5%", right: "-10%",
-            background: "radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(0, 0, 0, .7) 0%, transparent 70%)",
             filter: "blur(40px)",
           }}
           animate={{ x: [0, 20, 0], y: [0, 15, 0] }}
@@ -76,7 +76,7 @@ const Hero = ({ lang }: { lang: Lang }) => {
           className="absolute rounded-full"
           style={{
             width: 180, height: 180, bottom: "15%", left: "-5%",
-            background: "radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, transparent 70%)",
+            background: "radial-gradient(circle, rgba(0, 0, 0, .5) 0%, transparent 70%)",
             filter: "blur(40px)",
           }}
           animate={{ x: [0, -15, 0], y: [0, 20, 0] }}
@@ -85,7 +85,7 @@ const Hero = ({ lang }: { lang: Lang }) => {
       </div>
 
       {/* Grid overlay */}
-      <div className="hero-grid hidden md:block" />
+      <div className="hero-grid" />
 
       {/* Floating dots */}
       <FloatingDots paletteIndex={0} />
@@ -175,7 +175,7 @@ const Hero = ({ lang }: { lang: Lang }) => {
             initial={{ scaleX: 0, opacity: 0 }}
             animate={{ scaleX: 1, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="w-full h-1 rounded-full bg-gradient-to-r from-violet-500 via-blue-500 to-pink-500 mb-6"
+            className="w-full h-1 rounded-full bg-gradient-to-r from-transparent via-foreground/80 to-transparent mb-4"
             style={{ transformOrigin: "left" }}
           />
 
