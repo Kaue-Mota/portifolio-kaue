@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import LanguageToggle from "./LanguageToggle";
+import pfp from "../assets/pfp.png";
 
 interface NavItem {
   label: string;
@@ -52,11 +53,9 @@ const Header = ({ lang, navItems, onToggleLang }: { lang: string; navItems: NavI
             to="/"
             className="group relative flex items-center gap-3"
           >
-            <div className="relative w-9 h-9 rounded-full bg-primary text-primary-foreground flex items-center justify-center overflow-hidden transition-transform duration-500 group-hover:scale-110">
-              <span className="font-display text-sm font-bold tracking-tight">
-                KM
-              </span>
-              <div className="absolute inset-0 bg-gradient-to-br from-violet-500/30 via-transparent to-blue-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            <div className="relative w-11 h-11 rounded-full overflow-hidden transition-transform duration-500 group-hover:scale-110 ring-2 ring-primary/30 group-hover:ring-primary/60">
+              <img src={pfp} alt="Kauê Mota" className="w-full h-full object-cover object-top scale-125" />
+              <div className="absolute inset-0 bg-gradient-to-br from-violet-500/20 via-transparent to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
             <div className="flex flex-col leading-none">
               <span className="font-display text-lg font-bold tracking-tight text-foreground">
